@@ -1,2 +1,7 @@
 # Adam Optimizer Reproduction
- A reproduction of the original adam optimizer paper.
+
+Please see the [full post on my website](https://tylerebowers.com/posts/adam_optimizer) for details.
+
+Adam is one of the most widely used optimizers for deep learning. Kingma & Ba (2015) reported strong performance across logistic regression, fully connected neural networks, and convolutional neural networks, comparing Adam with SGD with Nesterov momentum, AdaGrad, RMSProp, and AdaDelta. In this report I reproduce the experiments in Section 6 of the original paper using some simplified modern implementations. I implement Adam from scratch using NumPy and I compare the original claims to my reproduced learning curves on MNIST logistic regression, IMDB bag-of-words logistic regression, a multilayer neural network with dropout on MNIST, and a CIFAR-10 convolutional network. Overall I find that the qualitative conclusions of the paper largely hold: Adam matches or outperforms AdaGrad on sparse problems and competes with tuned SGD with Nesterov momentum on deep networks. However, there are notable quantitative differences, particularly for the CIFAR-10 convolutional neural network: in several settings Adam struggles to outperform SGD with Nesterov momentum, despite testing a wide range of learning rates, $L^2$ regularization strengths, and architectural variants. I conclude with a discussion of likely causes for these discrepancies and practical lessons for using Adam in modern setups.
+
+[Original Adam Optimizer Paper](https://arxiv.org/abs/1412.6980)
